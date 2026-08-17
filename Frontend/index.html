@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explore India</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     LANDING PAGE
+===================================================== -->
+
+<section class="hero" id="landingPage">
+
+    <!-- Background image layers -->
+    <div class="hero-bg bg1" id="bg1"></div>
+    <div class="hero-bg bg2" id="bg2"></div>
+
+    <!-- Dark overlay -->
+    <div class="overlay"></div>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+            🇮🇳 Explore India
+        </div>
+
+        <div class="nav-buttons">
+
+            <button onclick="openLogin()">
+                Login
+            </button>
+
+            <button onclick="openSignup()">
+                Sign Up
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO CONTENT ================= -->
+
+    <div class="hero-content">
+
+        <h1>
+            Discover <span>India</span>
+        </h1>
+
+        <p>
+            Explore India's heritage, culture, nature,
+            food and hidden destinations — all in one place.
+        </p>
+
+        <button
+            class="explore-btn"
+            onclick="openSignup()">
+
+            Start Exploring
+
+        </button>
+
+    </div>
+
+
+    <!-- Image slider dots -->
+    <div class="dots" id="dots"></div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LOGIN / SIGNUP MODAL
+===================================================== -->
+
+<div class="modal" id="authModal">
+
+    <div class="modal-box">
+
+        <span
+            class="close"
+            onclick="closeModal('authModal')">
+
+            ×
+
+        </span>
+
+
+        <h2>
+            Welcome to Explore India
+        </h2>
+
+
+        <!-- Login / Signup tabs -->
+
+        <div class="tabs">
+
+            <button
+                id="loginTab"
+                onclick="showLogin()">
+
+                Login
+
+            </button>
+
+            <button
+                id="signupTab"
+                onclick="showSignup()">
+
+                Sign Up
+
+            </button>
+
+        </div>
+
+
+        <!-- ================= LOGIN ================= -->
+
+        <form
+            id="loginForm"
+            onsubmit="login(event)">
+
+            <label>
+                Login using
+            </label>
+
+            <select
+                id="loginType"
+                onchange="changeLoginType()">
+
+                <option value="email">
+                    Email
+                </option>
+
+                <option value="phone">
+                    Mobile Number
+                </option>
+
+            </select>
+
+
+            <!-- Email -->
+
+            <div id="loginEmail">
+
+                <label>
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    placeholder="Enter your email"
+                    required>
+
+            </div>
+
+
+            <!-- Mobile -->
+
+            <div
+                id="loginPhone"
+                style="display:none;">
+
+                <label>
+                    Mobile Number
+                </label>
+
+                <input
+                    type="tel"
+                    placeholder="Enter 10-digit number"
+                    maxlength="10">
+
+            </div>
+
+
+            <label>
+                Password
+            </label>
+
+            <input
+                type="password"
+                placeholder="Enter password"
+                required>
+
+
+            <button class="submit-btn">
+                Login
+            </button>
+
+        </form>
+
+
+        <!-- ================= SIGN UP ================= -->
+
+        <form
+            id="signupForm"
+            style="display:none;"
+            onsubmit="signup(event)">
+
+
+            <!-- Sign up uses email only -->
+
+            <label>
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                placeholder="Enter your email"
+                required>
+
+
+            <label>
+                Create Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Create password"
+                required>
+
+
+            <label>
+                Confirm Password
+            </label>
+
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm password"
+                required>
+
+
+            <button class="submit-btn">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     USER DETAILS
+===================================================== -->
+
+<div class="modal" id="detailsModal">
+
+    <div class="modal-box profile">
+
+        <span
+            class="close"
+            onclick="closeModal('detailsModal')">
+
+            ×
+
+        </span>
+
+
+        <h2>
+            Tell Us About Yourself
+        </h2>
+
+
+        <form onsubmit="createAccount(event)">
+
+
+            <!-- ================= BASIC INFORMATION ================= -->
+
+            <label>
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your full name"
+                required>
+
+
+            <!-- Date of birth -->
+
+            <label>
+                Date of Birth
+            </label>
+
+            <input
+                type="date"
+                id="dob"
+                onchange="calculateAge()"
+                required>
+
+
+            <!-- Automatically calculated age -->
+
+            <label>
+                Age
+            </label>
+
+            <input
+                type="text"
+                id="age"
+                placeholder="Age will appear here"
+                readonly>
+
+
+            <!-- Citizenship -->
+
+            <label>
+                Are you an Indian citizen?
+            </label>
+
+            <select
+                id="citizen"
+                onchange="citizenFields()"
+                required>
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="yes">
+                    Yes
+                </option>
+
+                <option value="no">
+                    No
+                </option>
+
+            </select>
+
+
+            <!-- =================================================
+                 INDIAN CITIZEN QUESTIONS
+            ================================================= -->
+
+            <div
+                id="indian"
+                class="extra">
+
+
+                <!-- State -->
+
+                <label>
+                    State
+                </label>
+
+                <select>
+
+                    <option>
+                        Maharashtra
+                    </option>
+
+                    <option>
+                        Gujarat
+                    </option>
+
+                    <option>
+                        Goa
+                    </option>
+
+                    <option>
+                        Rajasthan
+                    </option>
+
+                    <option>
+                        Delhi
+                    </option>
+
+                    <option>
+                        Karnataka
+                    </option>
+
+                    <option>
+                        Kerala
+                    </option>
+
+                    <option>
+                        Tamil Nadu
+                    </option>
+
+                    <option>
+                        Uttar Pradesh
+                    </option>
+
+                    <option>
+                        West Bengal
+                    </option>
+
+                    <option>
+                        Other
+                    </option>
+
+                </select>
+
+
+                <!-- Tourism interests -->
+
+                <label>
+                    What type of places do you like?
+                </label>
+
+                <select>
+
+                    <option>
+                        Heritage & History
+                    </option>
+
+                    <option>
+                        Nature & Wildlife
+                    </option>
+
+                    <option>
+                        Adventure
+                    </option>
+
+                    <option>
+                        Beaches
+                    </option>
+
+                    <option>
+                        Spiritual Tourism
+                    </option>
+
+                    <option>
+                        Food & Culture
+                    </option>
+
+                </select>
+
+
+                <!-- Travel companion -->
+
+                <label>
+                    Who do you travel with?
+                </label>
+
+                <select>
+
+                    <option>
+                        Solo
+                    </option>
+
+                    <option>
+                        Family
+                    </option>
+
+                    <option>
+                        Friends
+                    </option>
+
+                    <option>
+                        Couple
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- =================================================
+                 FOREIGN VISITOR QUESTIONS
+            ================================================= -->
+
+            <div
+                id="foreign"
+                class="extra">
+
+
+                <!-- Country -->
+
+                <label>
+                    Country
+                </label>
+
+                <input
+                    type="text"
+                    placeholder="Enter your country">
+
+
+                <!-- Tourism interests -->
+
+                <label>
+                    What interests you?
+                </label>
+
+                <select>
+
+                    <option>
+                        Heritage & History
+                    </option>
+
+                    <option>
+                        Nature & Wildlife
+                    </option>
+
+                    <option>
+                        Beaches
+                    </option>
+
+                    <option>
+                        Adventure
+                    </option>
+
+                    <option>
+                        Food & Culture
+                    </option>
+
+                    <option>
+                        Spiritual Tourism
+                    </option>
+
+                </select>
+
+
+                <!-- Travel companion -->
+
+                <label>
+                    Who are you travelling with?
+                </label>
+
+                <select>
+
+                    <option>
+                        Solo
+                    </option>
+
+                    <option>
+                        Family
+                    </option>
+
+                    <option>
+                        Friends
+                    </option>
+
+                    <option>
+                        Couple
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Create account -->
+
+            <button class="submit-btn">
+                Create Account
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section id="dashboard">
+
+    <header>
+
+        <h2>
+            🇮🇳 Explore India
+        </h2>
+
+        <button onclick="logout()">
+            Logout
+        </button>
+
+    </header>
+
+
+    <main>
+
+        <h1>
+            Welcome,
+            <span id="userName"></span>!
+        </h1>
+
+        <p>
+            Let's discover the beauty of India.
+        </p>
+
+
+        <!-- Tourism cards -->
+
+        <div class="places">
+
+
+            <!-- Agra -->
+
+            <div class="card">
+
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/d/da/Taj-Mahal.jpg"
+                    alt="Taj Mahal">
+
+                <h3>
+                    Agra
+                </h3>
+
+                <p>
+                    Explore the iconic Taj Mahal
+                    and India's rich history.
+                </p>
+
+            </div>
+
+
+            <!-- Kerala -->
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=900&q=80"
+                    alt="Kerala">
+
+                <h3>
+                    Kerala
+                </h3>
+
+                <p>
+                    Discover beautiful backwaters
+                    and tropical nature.
+                </p>
+
+            </div>
+
+
+            <!-- Rajasthan -->
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=900&q=80"
+                    alt="Rajasthan">
+
+                <h3>
+                    Rajasthan
+                </h3>
+
+                <p>
+                    Experience forts, palaces
+                    and royal heritage.
+                </p>
+
+            </div>
+
+
+            <!-- Goa -->
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=80"
+                    alt="Goa">
+
+                <h3>
+                    Goa
+                </h3>
+
+                <p>
+                    Enjoy beaches, culture
+                    and adventure.
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</section>
+
+
+
+<!-- JavaScript -->
+
+<script src="js/main.js"></script>
+
+</body>
+
+</html>
