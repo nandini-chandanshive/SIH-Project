@@ -126,64 +126,30 @@
         </div>
 
 
-        <!-- ================= LOGIN ================= -->
+        <!-- =================================================
+             LOGIN
+             
+             Email ONLY
+        ================================================= -->
 
         <form
             id="loginForm"
             onsubmit="login(event)">
 
-            <label>
-                Login using
-            </label>
-
-            <select
-                id="loginType"
-                onchange="changeLoginType()">
-
-                <option value="email">
-                    Email
-                </option>
-
-                <option value="phone">
-                    Mobile Number
-                </option>
-
-            </select>
-
 
             <!-- Email -->
 
-            <div id="loginEmail">
+            <label>
+                Email Address
+            </label>
 
-                <label>
-                    Email Address
-                </label>
-
-                <input
-                    type="email"
-                    placeholder="Enter your email"
-                    required>
-
-            </div>
+            <input
+                type="email"
+                placeholder="Enter your email"
+                required>
 
 
-            <!-- Mobile -->
-
-            <div
-                id="loginPhone"
-                style="display:none;">
-
-                <label>
-                    Mobile Number
-                </label>
-
-                <input
-                    type="tel"
-                    placeholder="Enter 10-digit number"
-                    maxlength="10">
-
-            </div>
-
+            <!-- Password -->
 
             <label>
                 Password
@@ -191,7 +157,7 @@
 
             <input
                 type="password"
-                placeholder="Enter password"
+                placeholder="Enter your password"
                 required>
 
 
@@ -202,15 +168,18 @@
         </form>
 
 
-        <!-- ================= SIGN UP ================= -->
+
+        <!-- =================================================
+             SIGN UP
+             
+             Email ONLY
+        ================================================= -->
 
         <form
             id="signupForm"
             style="display:none;"
             onsubmit="signup(event)">
 
-
-            <!-- Sign up uses email only -->
 
             <label>
                 Email Address
@@ -346,6 +315,7 @@
             </select>
 
 
+
             <!-- =================================================
                  INDIAN CITIZEN QUESTIONS
             ================================================= -->
@@ -363,49 +333,17 @@
 
                 <select>
 
-                    <option>
-                        Maharashtra
-                    </option>
-
-                    <option>
-                        Gujarat
-                    </option>
-
-                    <option>
-                        Goa
-                    </option>
-
-                    <option>
-                        Rajasthan
-                    </option>
-
-                    <option>
-                        Delhi
-                    </option>
-
-                    <option>
-                        Karnataka
-                    </option>
-
-                    <option>
-                        Kerala
-                    </option>
-
-                    <option>
-                        Tamil Nadu
-                    </option>
-
-                    <option>
-                        Uttar Pradesh
-                    </option>
-
-                    <option>
-                        West Bengal
-                    </option>
-
-                    <option>
-                        Other
-                    </option>
+                    <option>Maharashtra</option>
+                    <option>Gujarat</option>
+                    <option>Goa</option>
+                    <option>Rajasthan</option>
+                    <option>Delhi</option>
+                    <option>Karnataka</option>
+                    <option>Kerala</option>
+                    <option>Tamil Nadu</option>
+                    <option>Uttar Pradesh</option>
+                    <option>West Bengal</option>
+                    <option>Other</option>
 
                 </select>
 
@@ -453,25 +391,15 @@
 
                 <select>
 
-                    <option>
-                        Solo
-                    </option>
-
-                    <option>
-                        Family
-                    </option>
-
-                    <option>
-                        Friends
-                    </option>
-
-                    <option>
-                        Couple
-                    </option>
+                    <option>Solo</option>
+                    <option>Family</option>
+                    <option>Friends</option>
+                    <option>Couple</option>
 
                 </select>
 
             </div>
+
 
 
             <!-- =================================================
@@ -537,21 +465,10 @@
 
                 <select>
 
-                    <option>
-                        Solo
-                    </option>
-
-                    <option>
-                        Family
-                    </option>
-
-                    <option>
-                        Friends
-                    </option>
-
-                    <option>
-                        Couple
-                    </option>
+                    <option>Solo</option>
+                    <option>Family</option>
+                    <option>Friends</option>
+                    <option>Couple</option>
 
                 </select>
 
@@ -574,6 +491,8 @@
 
 <!-- =====================================================
      DASHBOARD
+     
+     Tourism cards removed.
 ===================================================== -->
 
 <section id="dashboard">
@@ -601,93 +520,6 @@
         <p>
             Let's discover the beauty of India.
         </p>
-
-
-        <!-- Tourism cards -->
-
-        <div class="places">
-
-
-            <!-- Agra -->
-
-            <div class="card">
-
-                <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/d/da/Taj-Mahal.jpg"
-                    alt="Taj Mahal">
-
-                <h3>
-                    Agra
-                </h3>
-
-                <p>
-                    Explore the iconic Taj Mahal
-                    and India's rich history.
-                </p>
-
-            </div>
-
-
-            <!-- Kerala -->
-
-            <div class="card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=900&q=80"
-                    alt="Kerala">
-
-                <h3>
-                    Kerala
-                </h3>
-
-                <p>
-                    Discover beautiful backwaters
-                    and tropical nature.
-                </p>
-
-            </div>
-
-
-            <!-- Rajasthan -->
-
-            <div class="card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=900&q=80"
-                    alt="Rajasthan">
-
-                <h3>
-                    Rajasthan
-                </h3>
-
-                <p>
-                    Experience forts, palaces
-                    and royal heritage.
-                </p>
-
-            </div>
-
-
-            <!-- Goa -->
-
-            <div class="card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=80"
-                    alt="Goa">
-
-                <h3>
-                    Goa
-                </h3>
-
-                <p>
-                    Enjoy beaches, culture
-                    and adventure.
-                </p>
-
-            </div>
-
-        </div>
 
     </main>
 
